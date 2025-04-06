@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>CPM ショップ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <h1>CPM 依頼ショップ</h1>
+
+  <div class="nav" id="auth-section">
+    <button id="login-btn" class="button">Discordでログイン</button>
+    <span id="user-info" class="hidden">ようこそ、<span id="username"></span> さん</span>
+  </div>
+
+  <div class="nav">
+    <button class="button" onclick="showPage('shop')">商品一覧</button>
+    <button class="button" onclick="showPage('cart')">カートを見る</button>
+  </div>
+
+  <!-- 商品一覧ページ -->
+  <div id="shop-page">
+    <div class="products" id="product-list"></div>
+  </div>
+
+  <!-- カートページ -->
+  <div id="cart-page" class="hidden">
+    <h2>🛒 カートの中身</h2>
+    <div class="cart-items" id="cart-items"></div>
+    <div style="text-align:center; margin-top:10px; font-weight:bold; font-size:16px; color:#d6336c;">
+      合計金額: <span id="cart-total">¥0</span>
+    </div>
+    <input type="text" id="buyer-name" class="form-input" placeholder="お名前を入力してください" />
+    <div style="text-align:center; margin-top:20px;">
+      <button class="button" onclick="confirmOrder()">注文を確定する</button>
+    </div>
+  </div>
+
+  <!-- 注文完了ページ -->
+  <div id="confirm-page" class="hidden">
+    <h2>✅ 注文ありがとうございました！</h2>
+    <p style="text-align:center;">注文内容はDiscordに送信されました。</p>
+    <div style="text-align:center; margin-top:20px;">
+      <button class="button" onclick="clearCart(); showPage('shop')">トップに戻る</button>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
